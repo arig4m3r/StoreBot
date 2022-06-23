@@ -3,7 +3,7 @@ const path = require('node:path');
 const { Client, Intents, Collection, MessageEmbed, MessageActionRow, MessageButton, MessageAttachment } = require('discord.js');
 
 const db = require('quick.db')
-const { productsCategory, staffLogsChannel, adminRole, chavePix, nomePix, pixNome } = require('./botconfig/serverconfig.json')
+const { productsCategory, staffLogsChannel, adminRole, chavePix, pixCidade, pixNome } = require('./botconfig/serverconfig.json')
 
 let { QrCodePix } = require('qrcode-pix');
 
@@ -89,7 +89,6 @@ client.on('interactionCreate', async interaction => {
 			valor: productValue,
 			emoji: productEmoji
 		})
-		console.log(db.get('loja.produtos'))
 		
 		await interaction.reply({embeds: [intEmbed]})
 		await interaction.guild.channels.cache.find(c => c.id == staffLogsChannel).send({embeds: [intEmbed]})
@@ -108,12 +107,11 @@ client.on('interactionCreate',async interaction => {
 		let produto = db.get(`loja.produtos.${channelId}`)[0];
 		const valor = (( produto.valor).includes(',') ? produto.valor : produto.valor + ",00");
 
-		console.log(valor.replaceAll(',', '.'))
 		const qrCodePix = QrCodePix({
 			version: '01',
 			key: chavePix,
 			name: pixNome,
-			city: nomePix,
+			city: pixCidade,
 			message: `FakeStore ${userId+":"+channelId}`,
 			value: parseInt(valor.replaceAll(',', '.'))
 		})
@@ -123,8 +121,6 @@ client.on('interactionCreate',async interaction => {
 		var fav = base64_img.split(",").slice(1).join(",");
 		var imageStream = Buffer.from(fav, "base64");
 		var attachment = new MessageAttachment(imageStream, "pix.png");
-
-		console.log(produto)
 
 		const embed = new MessageEmbed()
 		.setTitle("Pix - Pagamentos")

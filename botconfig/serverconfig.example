@@ -6,6 +6,6 @@
     "staffLogsChannel": 978578400333688873,
     "adminRole": 978572007144820756,
     "chavePix": "+55123456789",
-    "cidadePix": "São Paulo",
-    "nomePix": "Nome do recebedor"
+    "pixCidade": "São Paulo",
+    "pixNome": "Nome do recebedor",
 }
