@@ -1,6 +1,6 @@
-StoreBot - Gerenciamento de lojas no Discord!
+# StoreBot - Gerenciamento de lojas no Discord!
 
-##### Um bot criado com um intuito de testar a nova api do [Discord.JS](https://discord.js.org/), [v13](https://discordjs.guide/additional-info/changes-in-v13.html#before-you-start)
+### Um bot criado com um intuito de testar a nova api do [Discord.JS](https://discord.js.org/), [v13](https://discordjs.guide/additional-info/changes-in-v13.html#before-you-start)
 
 **O que é?**
 
