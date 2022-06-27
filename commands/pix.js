@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageAttachment, MessageEmbed } = require('discord.js');
-const { chavePix, pixCidade, pixNome } = require('./botconfig/serverconfig.json')
+const { chavePix, pixCidade, pixNome } = require('../botconfig/serverconfig.json')
 let { QrCodePix } = require('qrcode-pix');
 
 module.exports = {
